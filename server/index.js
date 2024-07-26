@@ -6,11 +6,11 @@ import dotenv from "dotenv";
 import Students from "./routes/student.js";
 import Posts from "./routes/post.js";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 dotenv.config();
 
-const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@sinhvien.youwj.mongodb.net/student_management?retryWrites=true&w=majority`;
+const DB_URL = `mongodb+srv://minhy114:28204008@cluster0.riuteeh.mongodb.net/school_management`;
 
 const app = express();
 app.use(cors());

@@ -5,8 +5,7 @@ import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import Logo from "./uet.png";
-import AppLogo from "./applogo_1.png";
+import Logo from "./huflit.png";
 
 const Body = styled.div`
   // background-color: rgb(186, 248, 255);
@@ -17,6 +16,9 @@ const Body = styled.div`
 const Container = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-item: center;
+
 `;
 const _Input = styled.input`
   border: 0;
@@ -79,16 +81,15 @@ const Form = styled.form`
   height: 500px;
   margin-top: 100px;
   background-color: white;
-  margin-left: 30%;
   border-radius: 60px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
 const Input_container = styled.div`
   padding: 0 0 10px 0;
 `;
-const Uet_logo = styled.img`
+const Huflit_logo = styled.img`
   width: 100px;
-  height: 100px;
+  height: auto;
   margin-left: 150px;
   margin-top: 20px;
 `;
@@ -190,7 +191,7 @@ class Login extends Component {
     event.preventDefault();
 
     await axios
-      .post("http://localhost:5000/login", {
+      .post("http://localhost:8080/login", {
         username: this.state.username,
         password: this.state.password,
       })
@@ -220,15 +221,9 @@ class Login extends Component {
           <Line1></Line1>
           <Line2></Line2>
           <Container>
-            <App_logo_container>
-              <App_logo src={AppLogo} />
-              <Comment>Hệ thống hỗ trợ quản lý sinh viên Classe369</Comment>
-              <Comment1>Xây dựng và phát triển bởi N3-INT3306_22</Comment1>
-              <Comment2>Trường Đại học Công nghệ - ĐHQGHN</Comment2>
-            </App_logo_container>
             <Form_container>
               <Form action='' method='post' onSubmit={this.submit}>
-                <Uet_logo src={Logo} />
+                <Huflit_logo src={Logo} />
                 <Title>ĐĂNG NHẬP</Title>
                 <Input_container>
                   <Icon>
@@ -253,12 +248,12 @@ class Login extends Component {
                     type='password'
                     name='password'
                     placeholder='Mật khẩu'
-                    // value={this.state.password}
+                    value={this.state.password}
 
                     onChange={this.handle}></_Input>
                 </Input_container>
                 <br />
-                {/* <Title1>Quên mật khẩu?</Title1> */}
+                <Title1>Quên mật khẩu?</Title1>
                 <_Button onClick={this.submit}>Đăng nhập</_Button>
                 <br />
               </Form>

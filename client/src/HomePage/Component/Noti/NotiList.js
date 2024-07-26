@@ -35,6 +35,7 @@ function TodoList(props) {
   useEffect(() => {
     async function fetchNotiList() {
       const lop = sessionStorage.getItem("lop").split(", ");
+      
       setLop(lop);
 
       const item =

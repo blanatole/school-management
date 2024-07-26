@@ -20,7 +20,8 @@ export const login = async (req, res) => {
       });
     }
 
-    const verifiedPassword = await argon2.verify(user.password, password);
+    // const verifiedPassword = await argon2.verify(user.password, password);
+    const verifiedPassword = user.password === password;
 
     if (!verifiedPassword) {
       return res.status(400).json({
@@ -30,7 +31,8 @@ export const login = async (req, res) => {
     } else {
       const accessToken = jwt.sign(
         { userId: user._id },
-        process.env.ACCESS_TOKEN_SECRET
+        process.env.ACCESS_TOKEN_SECRET,
+        {expiresIn: '1h'}
       );
 
       if (user.role === "student") {
@@ -75,10 +77,11 @@ export const createStudentAccount = async (req, res) => {
         .json({ success: false, message: "Username already exist" });
 
     // If user is ok -> save to the db
-    const hashedPassword = await argon2.hash(password);
+    // const hashedPassword = await argon2.hash(password);
     const newUser = new Users({
       username,
-      password: hashedPassword,
+      // password: hashedPassword,
+      password,
       role: "student",
       lop: lop,
     });

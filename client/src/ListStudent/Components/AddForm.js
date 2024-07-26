@@ -30,6 +30,47 @@ class AddForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+
+    const requiredFields = [
+      'msv', 'name', 'birthday', 'gender', 'phone', 'gpa', 'status', 'lop'
+    ];
+
+    for (let field of requiredFields) {
+      if (!this.state[field]) {
+        alert(`Vui lòng điền đầy đủ thông tin các trường`);
+        return;
+      }
+    }
+
+    const currentDate = new Date();
+    const birthDate = new Date(this.state.birthday);
+    const age = currentDate.getFullYear() - birthDate.getFullYear();
+
+    
+
+    if (age < 15) {
+      alert("Học sinh phải ít nhất 15 tuổi để đăng ký.");
+      return;
+    }
+
+    const phonePattern = /^[0-9]+$/;
+    if (!phonePattern.test(this.state.phone)) {
+      alert("Số điện thoại chỉ có thể chứa chữ số.");
+      return;
+    }
+
+    if (this.state.phone.lenth != 10) {
+      alert("Số điện thoại có độ dài 10 chữ số");
+      return;
+    }
+
+    if (this.state.gpa < 0 || this.state.gpa > 10) {
+      alert("Điểm số nằm trong khoản từ 0 tới 10");
+      return;
+    }
+
+
+
     CallApi("student/create", "POST", {
       msv: this.state.msv,
       name: this.state.name,
@@ -94,7 +135,7 @@ class AddForm extends Component {
             <div className="panel-body">
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                  <label>MSV: </label>
+                  <label>MHS: </label>
                   <input
                     type="text"
                     className="form-control"
@@ -150,7 +191,7 @@ class AddForm extends Component {
                     value={this.state.address}
                     onChange={this.onChange}
                   />
-                  <label>Tổng số tín chỉ: </label>
+                  {/* <label>Tổng số tín chỉ: </label>
                   <input
                     type="text"
                     className="form-control"
@@ -158,8 +199,8 @@ class AddForm extends Component {
                     name="sum_of_credits"
                     value={this.state.sum_of_credits}
                     onChange={this.onChange}
-                  />
-                  <label>GPA: </label>
+                  /> */}
+                  <label>ĐTB: </label>
                   <input
                     type="text"
                     className="form-control"
@@ -180,13 +221,12 @@ class AddForm extends Component {
                     <option value="Không">Không </option>
                     <option value="Nguy cơ nghỉ học">Nguy cơ nghỉ học</option>
                     <option value="Cảnh báo học vụ">Cảnh báo học vụ</option>
-                    <option value="Thiếu tín chỉ">Thiếu tín chỉ</option>
                     <option value="Thiếu học phí">Thiếu học phí</option>
                     <option value="Khen thưởng">Khen thưởng</option>
                   </select>{" "}
                   <label>Lớp:</label>
                   <input
-                    placeholder="vd: K64-CA-CLC-4"
+                    placeholder="vd: 12A1"
                     type="text"
                     className="form-control"
                     required

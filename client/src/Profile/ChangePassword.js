@@ -94,7 +94,7 @@ class ChangePassword extends Component {
         old_pass,
         new_pass,
       }).then((res) => {
-        alert(res.data.message);
+        alert("Đã đổi mật khẩu");
       });
     }
   };

@@ -38,7 +38,7 @@ class Sort extends Component {
                 aria-haspopup="true"
                 aria-expanded="true"
               >
-                MSV &nbsp; <span className="fa fa-caret-square-o-down"></span>
+                MHS &nbsp; <span className="fa fa-caret-square-o-down"></span>
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li onClick={() => this.onSort("msv", -1)}>
@@ -138,7 +138,7 @@ class Sort extends Component {
                 aria-haspopup="true"
                 aria-expanded="true"
               >
-                GPA &nbsp; <span className="fa fa-caret-square-o-down"></span>
+                ĐTB &nbsp; <span className="fa fa-caret-square-o-down"></span>
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMark">
                 <li onClick={() => this.onSort("mark", -1)}>

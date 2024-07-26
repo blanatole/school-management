@@ -154,19 +154,19 @@ class Chart extends Component {
 
     var { students, lop } = this.state;
     for (let i = 0; i < students.length; i++) {
-      if (students[i].gpa < 2.0) {
+      if (students[i].gpa < 4.0) {
         data_pie_chart[0].value += 1;
       }
-      if (students[i].gpa >= 2.0 && students[i].gpa < 2.5) {
+      if (students[i].gpa >= 4.0 && students[i].gpa < 5.9) {
         data_pie_chart[1].value += 1;
       }
-      if (students[i].gpa >= 2.5 && students[i].gpa < 3.2) {
+      if (students[i].gpa >= 6.0 && students[i].gpa < 7.9) {
         data_pie_chart[2].value += 1;
       }
-      if (students[i].gpa >= 3.2 && students[i].gpa < 3.6) {
+      if (students[i].gpa >= 8.0 && students[i].gpa < 8.9) {
         data_pie_chart[3].value += 1;
       }
-      if (students[i].gpa >= 3.6 && students[i].gpa <= 4.0) {
+      if (students[i].gpa >= 9.0 && students[i].gpa <= 10.0) {
         data_pie_chart[4].value += 1;
       }
     }
@@ -227,7 +227,7 @@ class Chart extends Component {
         <br /> <br />
         <Chart2>
           <h3 style={{ textAlign: "center" }}>
-            BIỂU ĐỒ THỐNG KÊ GPA SINH VIÊN
+            BIỂU ĐỒ THỐNG KÊ ĐTB HỌC SINH
           </h3>
           <Center2>
             <PieChart width={500} height={450}>
@@ -255,7 +255,7 @@ class Chart extends Component {
         </Chart2>
         <Chart1>
           <h3 style={{ textAlign: "center" }}>
-            BIỂU ĐỒ THỐNG KÊ TRẠNG THÁI SINH VIÊN
+            BIỂU ĐỒ THỐNG KÊ TRẠNG THÁI HỌC SINH
           </h3>
           <Center1>
             <ComposedChart width={900} height={500} data={data_bar_chart}>

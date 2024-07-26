@@ -193,7 +193,7 @@ class NavBar extends Component {
                 </Link>
                 <span className='tooltip'>Thông Báo</span>
               </li>
-              <li
+              {/* <li
                 className={chooseChat ? "home" : ""}
                 onClick={this.chooseChat}>
                 <Link to='/home/chat'>
@@ -204,7 +204,7 @@ class NavBar extends Component {
 
                   <span className='tooltip'>Chat</span>
                 </Link>
-              </li>
+              </li> */}
               <li
                 id='bangdiem'
                 className={
@@ -217,9 +217,9 @@ class NavBar extends Component {
                   <div className='icon'>
                     <BsClipboardData />
                   </div>
-                  <span className='links_name'>DS Sinh viên</span>
+                  <span className='links_name'>DS Học sinh</span>
                 </Link>
-                <span className='tooltip'>DS Sinh viên</span>
+                <span className='tooltip'>DS học sinh</span>
               </li>
               <li
                 className='chart'

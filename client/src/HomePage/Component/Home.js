@@ -17,7 +17,7 @@ export default class Home extends Component {
           <div className='introduction'>
             <h1 className='manage'>
               Mọi thứ
-              <div id='_manage'>cần thiết cho việc</div> quản lí sinh viên
+              <div id='_manage'>cần thiết cho việc</div> quản lí học sinh
             </h1>
             <div className='manage_1'>
               <img
@@ -28,7 +28,7 @@ export default class Home extends Component {
               />
             </div>
             <p id='_intro1'>
-              Classe369 là 1 phần mềm tiện ích giúp quản lý sinh viên một cách
+              Classe369 là 1 phần mềm tiện ích giúp quản lý học sinh một cách
               ngắn gọn và đầy đủ nhất thông qua những thống kê xác thực nhất và
               nhanh nhất
             </p>
@@ -70,7 +70,7 @@ export default class Home extends Component {
                 Biểu đồ điểm
               </div>
               <div className='footer_fn' id='footer_fn3'>
-                Danh sách sinh viên
+                Danh sách học sinh
               </div>
               <div className='footer_fn' id='footer_fn4'>
                 Thông báo
